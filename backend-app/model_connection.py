@@ -5,6 +5,8 @@ from langchain.callbacks.streaming_aiter import AsyncIteratorCallbackHandler
 from langchain_openai import OpenAI
 import asyncio
 from langchain.callbacks.manager import CallbackManagerForLLMRun
+import json
+import time
 
 
 class ModelConnection:
@@ -21,39 +23,55 @@ class ModelConnection:
         chain = prompt | self.llm
         return chain.invoke({"question": user_query})
     
-    '''
-    def prompt_model_stream(self, user_query: str) -> str:
-        template = f"""Question: {user_query}
-        Answer: Let's think step by step."""
-        prompt = ChatPromptTemplate.from_template(template)
-        run_manager = CallbackManagerForLLMRun()
-        for chunk in self.llm._stream(prompt, run_manager=run_manager):
-            print(chunk)
-    '''
     def prompt_model_stream(self, user_query: str):
         template = f"""Question: {user_query}
-        Answer: Let's think step by step."""
-        print(template)
+        """
+        print("#"*50)
+        print("prompt_model_stream Called")
+        print("#"*50)
         #prompt = ChatPromptTemplate.from_template(template)
         #print("Prompt", prompt)
         for chunks in self.llm.stream(template):
-            print(chunks)
+            #print("data: " + chunks + "\n\n")
+            yield "data: " + chunks + "\n\n"
+
+    def return_paper_output(self):
+        data = """
+    The dominant sequence transduction models are based on complex recurrent or 
+    The dominant sequence transduction models are based on complex recurrent or 
+    The dominant sequence transduction models are based on complex recurrent or The dominant sequence transduction models are based on complex recurrent or 
+    The dominant sequence transduction models are based on complex recurrent or 
+    The dominant sequence transduction models are based on complex recurrent or 
+    The dominant sequence transduction models are based on complex recur
+    The dominant sequence transduction models are based on complex recurrent or 
+    The dominant sequence transduction models are based on complex recurrent or The dominant sequence transduction models are based on complex recurrent or 
+    The dominant sequence transduction models are based on complex recurrent or 
+    The dominant sequence transduction models are based on complex recurrent or 
+    The dominant sequence transduction models are based on complex recur
+    The dominant sequence transduction models are based on complex recurrent or 
+    The dominant sequence transduction models are based on complex recurrent or 
+    """
+        return data     
+
+    def sse_pack(self, event: str, message: str):
+        # Format data as an SSE message
+        packet = "event: %s\n" % event
+        data = {'message': message}
+
+        packet += "data: %s\n" % json.dumps(data)
+        packet += "\n"
+        return packet
 
 
-    async def test_aiter(self):
-        handler = AsyncIteratorCallbackHandler()
-        llm = OpenAI(
-            temperature=0,
-            streaming=True,
-            callbacks=[handler],
-            openai_api_key="sk-xxxxx",
-            openai_proxy="http://127.0.0.1:11434",
-        )
-        prompt = PromptTemplate(
-            input_variables=["product"],
-            template="What is a good name for a company that makes {product}?",
-        )
-        prompt = prompt.format(product="colorful socks")
-        asyncio.create_task(llm.agenerate([prompt]))
-        async for i in handler.aiter():
-            print(i)
+    def get_json_streaming(self):
+        json_stream = [
+            {"section": "hellaaaaaaaaa aaaaaaaaaaaaaaaaaaa", "text": self.return_paper_output()},
+            {"section": 2, "text": self.return_paper_output()},
+            {"section": 3, "text": self.return_paper_output()},
+        ]
+
+        for json in json_stream:
+            yield self.sse_pack('json',  json)
+        #yield self.sse_pack('done', {
+        #    'jsonListId': 1,
+        #})

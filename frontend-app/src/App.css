@@ -1,6 +1,5 @@
 .LLMBox{
     border: 1px solid #00000026;
-    border-radius: 5px;
     background-color: #3a3a3a;
     width: 100%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -28,6 +27,7 @@ width: 80%;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
+    max-height: 25px;
 }
 .chat-icon-model{
     color:rgb(255, 255, 255);
@@ -37,6 +37,7 @@ width: 80%;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
+    max-height: 25px;
 
 }
 .chat-text{
@@ -96,3 +97,33 @@ width: 80%;
     outline: none;
 }
 
+.PaperOutputBox{
+    border: 1px solid #00000026;
+    background-color: #3a3a3a;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: table;
+    z-index: 0;
+}
+
+.PaperSection{
+    }
+
+.PaperSectionHeader{
+}
+
+.PaperSectionText{
+}
+
+.outerDiv{
+    position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
+#wrapper {
+    min-height: 100%; 
+}
