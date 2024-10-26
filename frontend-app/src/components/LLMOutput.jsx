@@ -4,17 +4,17 @@ import { FaUser } from "react-icons/fa";
 import { FaPaperPlane } from "react-icons/fa";
 import { fetchEventSource } from '@microsoft/fetch-event-source';
 
-const llmOutput = () => {
+const LLMOutput = () => {
   const [chatlog, setChatlog] = useState([{ user: 'model', text: 'Ask me anything!' }]);
   const [input, setInput] = useState('');
   const messagesEndRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const scrollToBottom = () => {
-    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" , alignToTop: true, inline: "center", block: "center" });
   };
 
-  useEffect(scrollToBottom, [chatlog]);
+  //useEffect(scrollToBottom, [chatlog]);
 
   async function generateOutput(e) {
     e.preventDefault();
@@ -34,6 +34,7 @@ const llmOutput = () => {
       onopen(res) {
         if (res.ok && res.status === 200) {
           console.log("Connection made ", res);
+          scrollToBottom();
         } else if (res.status >= 400 && res.status < 500 && res.status !== 429) {
           console.log("Client-side error ", res);
         }
@@ -58,6 +59,7 @@ const llmOutput = () => {
       },
     });
     setIsSubmitting(false);
+    scrollToBottom();
   }
 
   const ChatLogOutput = () => {
@@ -95,4 +97,4 @@ const llmOutput = () => {
   )
 }
 
-export default llmOutput;
+export default LLMOutput;

@@ -33,8 +33,16 @@ def generate_llm_output(body: Data):
     return StreamingResponse(llm_con.prompt_model_stream(prompt), media_type='text/event-stream')
 
 @app.post("/paperop")
-async def request_handler(body: Data):
+async def paperop_handler(body: Data):
     auth = True    
     if auth == True:
-        response: StreamingResponse = StreamingResponse(llm_con.get_json_streaming(), media_type="text/event-stream")
+        response: StreamingResponse = StreamingResponse(llm_con.get_paperop_streaming(), media_type="text/event-stream")
+        return response
+    
+@app.post("/papersum")
+async def papersum_handler(body: Data):
+    print("papersum_handler Called")
+    auth = True    
+    if auth == True:
+        response: StreamingResponse = StreamingResponse(llm_con.get_papersum_streaming(), media_type="text/event-stream")
         return response

@@ -32,7 +32,7 @@ class ModelConnection:
         #prompt = ChatPromptTemplate.from_template(template)
         #print("Prompt", prompt)
         for chunks in self.llm.stream(template):
-            #print("data: " + chunks + "\n\n")
+            print("data: " + chunks + "\n\n")
             yield "data: " + chunks + "\n\n"
 
     def return_paper_output(self):
@@ -63,15 +63,32 @@ class ModelConnection:
         return packet
 
 
-    def get_json_streaming(self):
+    def get_paperop_streaming(self):
         json_stream = [
             {"section": "hellaaaaaaaaa aaaaaaaaaaaaaaaaaaa", "text": self.return_paper_output()},
+            {"section": "hasjdaw oawi jad aaa", "text": self.return_paper_output()},
+            {"section": "helawd : awdha sWUDA", "text": self.return_paper_output()},
             {"section": 2, "text": self.return_paper_output()},
             {"section": 3, "text": self.return_paper_output()},
         ]
 
         for json in json_stream:
             yield self.sse_pack('json',  json)
-        #yield self.sse_pack('done', {
-        #    'jsonListId': 1,
-        #})
+
+    def get_papersum_streaming(self):
+        json_stream = [
+            {"section": "hellaaaaaaaaa aaaaaaaaaaaaaaaaaaa", "text": "1. Hello gow are you"},
+            {"section": "hasjdaw oawi jad aaa", "text": "2. Hello gow are yoanwdkanwkjdu"},
+            {"section": "helawd : awdha sWUDA", "text": "3. Hello gow are yaakwdadou"},
+            {"section": 2, "text": "4. Hello gow are yaijwi odou"},
+            {"section": 3, "text": "5. Hello gow are yawodijoijou"},
+            {"section": "hellaaaaaaaaa aaaaaaaaaaaaaaaaaaa", "text": "1. Hello gow are you"},
+            {"section": "hasjdaw oawi jad aaa", "text": "2. Hello gow are yoanwdkanwkjdu"},
+            {"section": "helawd : awdha sWUDA", "text": "3. Hello gow are yaakwdadou"},
+            {"section": 2, "text": "4. Hello gow are yaijwiodou"},
+            {"section": 3, "text": "5. Hello gow are yawodijoijou"},
+        ]
+
+        for json in json_stream:
+            print("json", json)
+            yield self.sse_pack('json',  json)
