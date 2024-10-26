@@ -16,6 +16,7 @@ body {
     padding: 20px 20px 10px 20px;
     margin: 20px 0;
     position: relative;
+    z-index: 0;
 }
 
 /* Chat Area */
@@ -204,12 +205,13 @@ font-size: medium;
 
 /* Outer Div for Responsiveness */
 .outerDiv {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     overflow: auto;
+    margin: 20px 10px;
 }
 
 #wrapper {
@@ -235,4 +237,70 @@ font-size: medium;
 
 ::-webkit-scrollbar-track {
     background-color: #2c2c2c;
+}
+
+.NavBar {
+    background-color: #1e1e1e;
+    justify-content: start;
+    align-self: center;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    
+}
+.NavBar a{
+    align-self: center;
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    font-size: large;
+}
+
+
+.NavBar h1{
+    align-self: center;
+    position: fixed;
+    top: 3px;
+    left: 45%;
+}
+
+.SideNav.active{
+
+    left: 0%;
+    transition: 350ms;
+}
+
+.SideNav {
+    display: flex;
+    background-color: #1e1e1e;;
+    justify-content: start;
+    align-self: center;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 1;
+    padding: 50px 30px;
+    left: -100%;
+    transition: 200ms;
+}
+
+.SideNav li{
+    list-style: none;
+    padding: 2px;
+}
+
+.SideNav li button{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #00fae3;
+    color: black;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: 600;
+}
+
+.SideNav li button {
+    display: flex;
 }

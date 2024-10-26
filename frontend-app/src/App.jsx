@@ -2,6 +2,7 @@ import React from 'react';
 import PaperOutput from './components/PaperOutput';
 import PaperSummary from './components/PaperSummary';
 import LLMOutput from './components/LLMOutput';
+import NavBar from './components/NavBar';
 import './App_darkmode.css';
 
 
@@ -9,6 +10,7 @@ import './App_darkmode.css';
 const App = () => {
   return (
     <>
+      <NavBar/>
       <div className="flex outerDiv">
         <div className='max-h-screen PaperOutputBox' style={{width:'30%'}}>
           <PaperOutput /> 
