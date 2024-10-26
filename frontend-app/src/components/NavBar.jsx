@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { FaBars } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
 import {BrowserRouter, Link } from "react-router-dom"
@@ -9,7 +9,9 @@ function NavBar() {
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const ToggleSidebar = () => setSidebarOpen(!sidebarOpen);
-
+    function reditectToUpload(){
+        window.location.href = '/upload';
+    }
 
   return (
     <>
@@ -23,7 +25,7 @@ function NavBar() {
             </div>
             <div className={sidebarOpen ? "SideNav active" : "SideNav"}>
                 <ul>
-                    <li><button className='Upload-File-Button'><IoMdCloudUpload /> Upload File </button></li>
+                    <li><button onClick={reditectToUpload} className='Upload-File-Button'><IoMdCloudUpload /> Upload File </button></li>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>

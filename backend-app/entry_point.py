@@ -1,12 +1,15 @@
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile
 from pydantic import BaseModel
 from model_connection import ModelConnection
 from fastapi.responses import StreamingResponse
 import random
+import time
 
 class Data(BaseModel):
     message: list
+
+
 
 app = FastAPI()
 llm_con = ModelConnection('llama3.2:1b', 'ollama')
@@ -46,3 +49,9 @@ async def papersum_handler(body: Data):
     if auth == True:
         response: StreamingResponse = StreamingResponse(llm_con.get_papersum_streaming(), media_type="text/event-stream")
         return response
+    
+@app.post("/uploadFile")
+async def handle_file_upload(fileContent: UploadFile):
+    contents = await fileContent.read()
+    time.sleep(10)
+    return {"message":"Done"}

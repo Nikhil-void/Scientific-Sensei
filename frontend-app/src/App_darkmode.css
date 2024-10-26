@@ -248,7 +248,7 @@ font-size: medium;
     top: 0;
     width: 100%;
     padding: 10px;
-    
+    min-height: 35px;
 }
 .NavBar a{
     align-self: center;
@@ -303,4 +303,168 @@ font-size: medium;
 
 .SideNav li button {
     display: flex;
+}
+
+.UploadDiv {
+    margin: 3%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 10% 30%;
+    padding: 50px;
+    border-radius: 50%;
+    background-color: #555;
+
+}
+
+.UploadDiv button{
+    color: rgb(0 0 0);
+    margin: 0 5px 2px 5px;
+    padding: 5px 20px;
+    background: #00fae3;
+    border-radius: 10%;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 0px 0px 40px 0px #00fae3;
+}
+
+.UploadDiv input[type="file"] {
+    position: relative;
+  }
+
+.UploadDiv h1{
+    text-align: center;
+    font-size: large ;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+  
+.UploadDiv  input[type="file"]::file-selector-button {
+    width: 136px;
+    color: transparent;
+}
+  
+  /* Faked label styles and icon */
+.UploadDiv  input[type="file"]::before {
+    position: absolute;
+    pointer-events: none;
+    top: 10px;
+    left: 16px;
+    height: 20px;
+    width: 20px;
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230964B0'%3E%3Cpath d='M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zM7 9l1.41 1.41L11 7.83V16h2V7.83l2.59 2.58L17 9l-5-5-5 5z'/%3E%3C/svg%3E");
+  }
+  
+.UploadDiv  input[type="file"]::after {
+    position: absolute;
+    pointer-events: none;
+    top: 11px;
+    left: 40px;
+    color: #0964b0;
+    content: "Select File";
+  }
+  
+  /* ------- From Step 1 ------- */
+  
+  /* file upload button */
+.UploadDiv  input[type="file"]::file-selector-button {
+    border-radius: 4px;
+    padding: 0 16px;
+    height: 40px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    margin-right: 16px;
+    transition: background-color 200ms;
+  }
+  
+  /* file upload button hover state */
+.UploadDiv  input[type="file"]::file-selector-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  /* file upload button active state */
+.UploadDiv input[type="file"]::file-selector-button:active {
+    background-color: #e5e7eb;
+  }
+
+
+
+
+
+  /* WelcomePage.css - Dark Theme */
+
+.welcome-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 2rem;
+    background: linear-gradient(135deg, #1a1a1a, #333333);
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.welcome-container {
+    max-width: 800px;
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.welcome-subtitle {
+    font-size: 1.75rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: #b3b3b3;
+}
+
+.welcome-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #cccccc;
+}
+
+.highlight-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    color: #ffffff;
+}
+
+.highlight-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #e6e6e6;
+}
+
+.highlight-box p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #bfbfbf;
+}
+
+.welcome-footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #8c8c8c;
+    opacity: 0.8;
+}
+
+.highlight-box a{
+    color: #00fae3;
 }
