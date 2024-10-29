@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const WelcomePage = () => {
+    function redirectToHome(){
+        window.location.href = '/upload';
+    }
+
     return (
         <div className="welcome-page">
             <div className="welcome-container">
@@ -21,10 +25,10 @@ const WelcomePage = () => {
                         complex information, giving you a clear understanding in seconds.
                     </p>
                     <p>
-                        <br/><br/>Click below to get started or use the side bar to access already uploaded papers!
-                        <Link to="/upload" className="welcome-link"><br/><br/>Upload Now</Link>
+                        <br/><br/>Click below to get started or use the side bar to access already uploaded papers!<br/><br/>
+                        <button onClick={redirectToHome} className="welcome-upload-button">Upload Now</button>
                     </p>
-                    <p> <br/> <br/>Made by Nikhil Naik - 
+                    <p className='MadeBy'> <br/> <br/>Made by Nikhil Naik - 
                         <a href="https://nikhil-void.github.io/Nikhil_Portfolio/" target="_blank" rel="noreferrer"> Portfolio</a>
                      </p>
 

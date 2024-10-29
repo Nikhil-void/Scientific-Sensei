@@ -49,17 +49,19 @@ function UploadDocuments() {
 
   return (
     <>
-    {loading ? (
-        <div className='UploadDiv'>Loading...</div>
-    ) : (
-        <div className='UploadDiv'>
-            <h1>Upload Document</h1>
-            <form onSubmit={handleSubmit}>
-            <input type="file" onChange={handleChange}/>
-            <button type="submit">Upload</button>
-            </form>
-        </div>
-    )}
+    <div className="OuterUploadDiv">
+        {loading ? (
+            <div className='UploadDiv'>Loading...</div>
+        ) : (
+            <div className='UploadDiv'>
+                <h1>Upload Document</h1>
+                <form onSubmit={handleSubmit}>
+                <input type="file" onChange={handleChange}/>
+                <button type="submit">Upload</button>
+                </form>
+            </div>
+        )}
+    </div>
     </>
   )
 }

@@ -92,3 +92,15 @@ class ModelConnection:
         for json in json_stream:
             print("json", json)
             yield self.sse_pack('json',  json)
+
+    def get_navbar_info(self):
+        json_stream = [
+            {"content": "Home", "link": "/home"},
+            {"content": "About", "link": "/about"},
+            {"content": "Contact", "link": "/contact"},
+            {"content": "Services", "link": "/services"},
+            {"content": "Portfolio", "link": "/portfolio"},
+            {"content": "Blog", "link": "/blog"},
+        ]
+        for json in json_stream:
+            yield self.sse_pack('json',  json)

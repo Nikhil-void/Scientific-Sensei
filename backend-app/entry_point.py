@@ -55,3 +55,11 @@ async def handle_file_upload(fileContent: UploadFile):
     contents = await fileContent.read()
     time.sleep(10)
     return {"message":"Done"}
+
+
+@app.post("/navbar_hist")
+async def handle_file_upload(body: Data):
+    auth = True    
+    if auth == True:
+        response: StreamingResponse = StreamingResponse(llm_con.get_navbar_info(), media_type="text/event-stream")
+        return response

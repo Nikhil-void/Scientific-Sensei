@@ -131,20 +131,20 @@ body {
 
 .LLMOutputPaper h1{
     font-size: 20px;
-    color: #fff;
+    color: #00fae3;
     margin-bottom: 10px;
     text-align: center ;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 8px rgba(112, 198, 232, 0.8);
 }
 
 .PaperOutput h1{
     font-size: 20px;
-    color: #fff;
+    color: #00fae3;
     margin-bottom: 10px;
     text-align: center ;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 8px rgba(112, 198, 232, 0.8);
 }
 
 
@@ -231,7 +231,7 @@ font-size: medium;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #4a90e2;
+    background-color: #00fae3;
     border-radius: 10px;
 }
 
@@ -250,6 +250,18 @@ font-size: medium;
     padding: 10px;
     min-height: 35px;
 }
+
+.Home-Button{
+    float: right;
+    color: #dadada;
+    font-size: medium;
+    font-weight: bold;
+    margin-right: 20px;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
 .NavBar a{
     align-self: center;
     position: fixed;
@@ -305,12 +317,52 @@ font-size: medium;
     display: flex;
 }
 
+.SideNav.active {
+    left: 0; /* Bring sidebar into view when active */
+}
+
+.SideNav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.SideNav li {
+    margin: 1rem 0; /* Spacing between list items */
+}
+
+.SideNav a {
+    text-decoration: none; /* Remove underline */
+    color: #00fae3; /* Sci-fi color for text */
+    font-size: 1.2rem; /* Slightly larger font size */
+    padding: 0.5rem 1rem; /* Padding for clickable area */
+    border-radius: 8px; /* Rounded corners for hover effect */
+    display: block; /* Make anchor a block element */
+    transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.SideNav a:hover {
+    background: rgba(0, 250, 227, 0.1); /* Light background on hover */
+    color: #ffffff; /* Change text color on hover for contrast */
+}
+
+
+/* UPLOAD SECTION */
+.OuterUploadDiv {
+    background: radial-gradient(circle at top, rgba(0, 250, 227, 0.05), rgba(20, 20, 20, 1) 70%);
+    color: #e0e0e0;
+    display: flex;
+    padding: 2rem; /* Add some padding for better spacing */
+    border-radius: 12px; /* Optional: rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Optional: shadow effect */
+    height: 100vh;
+}
+
 .UploadDiv {
     margin: 3%;
     display: grid;
     justify-content: center;
     align-items: center;
-    margin: 10% 30%;
+    margin: 12% 30%;
     padding: 50px;
     border-radius: 50%;
     background-color: #555;
@@ -390,66 +442,90 @@ font-size: medium;
     background-color: #e5e7eb;
   }
 
+.highlight-box a{
+    color: #00fae3;
+}
 
 
 
 
-  /* WelcomePage.css - Dark Theme */
+  /* WelcomePage.css - Dark Theme with Subtle Sci-Fi Accents */
 
 .welcome-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 80vh;
+    min-height: 100vh;
     padding: 2rem;
-    background: linear-gradient(135deg, #1a1a1a, #333333);
+    background: radial-gradient(circle at top, #141414, #1a1a1a);
     color: #e0e0e0;
     font-family: 'Roboto', sans-serif;
+    position: relative;
+    overflow: hidden;
+    margin: 1% 0 0 10%;
+}
+
+.welcome-page::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 250, 227, 0.05), transparent 70%);
+    transform: translate(-50%, -50%);
+    filter: blur(80px);
+    z-index: -1;
 }
 
 .welcome-container {
     max-width: 800px;
     text-align: center;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(0, 250, 227, 0.07), rgba(255, 255, 255, 0.04));
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
+.welcome-upload-button{
+    color: #00fae3;
+}
 .welcome-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
     font-weight: bold;
-    color: #ffffff;
+    color: #e0e0e0;
 }
 
 .welcome-subtitle {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
     font-weight: 300;
     margin-bottom: 1.5rem;
     color: #b3b3b3;
 }
 
 .welcome-description {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 2rem;
     color: #cccccc;
 }
 
 .highlight-box {
-    background-color: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(0, 250, 227, 0.08), rgba(255, 255, 255, 0.02));
     padding: 1.5rem;
     border-radius: 8px;
     margin-top: 1.5rem;
-    color: #ffffff;
+    color: #dcdcdc;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .highlight-box h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 0.5rem;
-    color: #e6e6e6;
+    color: #00fae3;
 }
 
 .highlight-box p {
@@ -463,8 +539,4 @@ font-size: medium;
     font-size: 0.9rem;
     color: #8c8c8c;
     opacity: 0.8;
-}
-
-.highlight-box a{
-    color: #00fae3;
 }

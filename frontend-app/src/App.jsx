@@ -7,6 +7,7 @@ import ManageInnerPages from './components/ManageInnerPages';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
 import './App_darkmode.css';
+import { useState } from 'react';
 
 
 
@@ -17,7 +18,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/upload"  element={<Upload/>}/>
-          <Route path="/" exact element={<WelcomePage/>} />
+          <Route path="/" exact element={<WelcomePage/>}  />
           <Route path="/show" exact element={<ManageInnerPages/>} /> 
             
         </Routes>
